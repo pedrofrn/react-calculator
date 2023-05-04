@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { press } from "../../services/hitButton";
+import {Calc} from "../Screen/Calc";
 
 function Button(props) {
 
@@ -11,8 +11,9 @@ function Button(props) {
     }, [])
 
     function hit() {
-        return press(props.char)
+        return Calc(props.char)
     }
+
     return (
         <button id="button" className={classChar} onClick={hit}>
             <div className="char">{props.char}</div>

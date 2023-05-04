@@ -1,5 +1,5 @@
 import React from "react";
-import Calc from "./Calc";
+import { Calc } from "./Calc";
 
 function Screen() {
     return (
