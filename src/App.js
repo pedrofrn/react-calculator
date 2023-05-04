@@ -23,6 +23,10 @@ function App() {
   ); */
   return (
     <div className="App App-header">
+      <header>
+        <img src={logo} className="react" alt="logo" />
+        <h1>React Calculator</h1>
+      </header>
       {<Calculator />}
     </div>
   );

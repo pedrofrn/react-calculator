@@ -1,10 +1,15 @@
 import React from "react";
-import { Calc } from "./Calc";
 
-function Screen() {
+/**
+ * props:
+ * - curr
+ * - expression
+ */
+function Screen(props) {
     return (
-        <div id="Screen">
-            {<Calc />}
+        <div>
+            <div className="expression">{props.expression}</div>
+            <div className="curr">{props.curr}</div>
         </div>
     )
 }

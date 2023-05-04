@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import {Calc} from "../Screen/Calc";
 
 function Button(props) {
 
@@ -10,14 +9,10 @@ function Button(props) {
         else setClassChar('tools');
     }, [])
 
-    function hit() {
-        return Calc(props.char)
-    }
-
     return (
-        <button id="button" className={classChar} onClick={hit}>
-            <div className="char">{props.char}</div>
-        </button>
+            <button className={classChar} onClick={() => props.onClick(props.char)}>
+                {props.char}
+            </button>
     )
 }
 
