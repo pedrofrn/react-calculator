@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import Screen from './components/Screen/Screen';
 import Button from './components/Button/Button';
+import { pastService } from './services/services';
 
 function Calculator() {
 
     const [curr, setCurr] = useState('');
     const [expression, setExpression] = useState('');
+    const [pastList, setPastList] = useState({});
+
+    useEffect(() => {
+        if (expression.length > 0) setTimeout(() => clear(), 2000);
+        pastService(pastList);
+    }, [pastList])
 
     function buttonView() {
         const keys = [
@@ -24,12 +31,14 @@ function Calculator() {
         )
     }
 
-    function handleClick(char) {
-        if (char === 'C') {
-            setCurr('');
-            return setExpression('');
-        }
-        
+    function clear() {
+        setCurr('');
+        return setExpression('');
+    }
+
+    function handleClick(char = '') {
+        if (char === 'C') return clear();
+
         if (typeof char === 'number') {
             if (expression[expression.length - 1] === '/'
                 || expression[expression.length - 1] === 'X'
@@ -38,7 +47,7 @@ function Calculator() {
                 setCurr(char);
             else setCurr(prevState => prevState + char.toString());
         }
-                
+
         if (char === '←') {
             if (expression[expression.length - 1] === '/'
                 || expression[expression.length - 1] === 'X'
@@ -51,6 +60,24 @@ function Calculator() {
             }
         }
         else setExpression(prevState => prevState + char);
+
+        if (char === '=') {
+            const result = eval(expression);
+            setCurr(result)
+            setExpression(prevState => {
+                createPastListItem(prevState + result);
+                return prevState + result;
+            })
+        }
+    }
+
+    function createPastListItem(expression) {
+        const date = new Date().toLocaleString()
+        const item = {
+            date: date,
+            expression: expression
+        };
+        return setPastList(prevState => item)
     }
 
     return (
@@ -63,6 +90,7 @@ function Calculator() {
                     {buttonView()}
                 </div>
             </div>
+
         </main>
     )
 }

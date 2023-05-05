@@ -27,7 +27,7 @@ function App() {
         <img src={logo} className="react" alt="logo" />
         <h1>React Calculator</h1>
       </header>
-      {<Calculator />}
+      <Calculator />
     </div>
   );
 }

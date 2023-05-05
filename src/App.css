@@ -30,14 +30,11 @@ body {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
 @keyframes react-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -46,7 +43,7 @@ body {
 header {
   width: 400px;
   display: flex;
-  
+  margin-bottom: 5px;
 }
 
 header h1 {
@@ -59,11 +56,11 @@ main {
 }
 
 div.Screen {
-  background-color: #1a1f2b80;
+  background-color: #303d5c;
   height: 100px;
   border-radius: 2px;
   margin-bottom: 10px;
-  border: 20px solid #00000010;
+  border: 20px solid #38649950;
   display: flex;
   padding: 20px;
   align-items: center;
@@ -71,9 +68,7 @@ div.Screen {
   text-align: end;
 }
 
-div.keyboard {
-  
-}
+div.keyboard {}
 
 div.keyboard div.keys {
   grid-template-columns: repeat(4, 1fr);
@@ -91,13 +86,20 @@ div.keyboard div.keys button {
   cursor: pointer;
 }
 
+div.keyboard div.keys button:last-child {
+  grid-column-end: span 2;
+  background-color: #f17645;
+  color: #000;
+  font-weight: bold;
+}
+
 button.tools {
-  background-color: #283f70;
-  color: #bed0f5;
+  background-color: #386499;
+  color: #a0c3ee;
 }
 
 button.number {
-  background-color: #5b7cbe;
+  background-color: #658bb9;
   font-weight: bold;
   color: #252d3f;
 }
