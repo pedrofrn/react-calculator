@@ -21,6 +21,7 @@ body {
 
 .App-header {
   background-color: #232a3b;
+  padding:20px 0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -52,7 +53,8 @@ header h1 {
 }
 
 main {
-  width: 400px;
+  max-width: 400px;
+  width: 90%;
 }
 
 div.Screen {
@@ -66,9 +68,9 @@ div.Screen {
   align-items: center;
   justify-content: flex-end;
   text-align: end;
+  word-break: break-word;
+  line-height: 2.2em;
 }
-
-div.keyboard {}
 
 div.keyboard div.keys {
   grid-template-columns: repeat(4, 1fr);
@@ -136,10 +138,24 @@ div.PastList div.item {
 
 div.PastList div.item .date {
   font-weight: normal;
+  text-align: left;
   color: #386499;
 }
 
 div.PastList div.item .expressionList {
   font-size: 14pt;
   color: #a0c3ee;
+}
+
+span.credit {
+  margin: 40px 0;
+  font-size: 9pt;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #788fbd;
+}
+
+span.credit a {
+  color: #f17645;
+  text-decoration: none;
 }

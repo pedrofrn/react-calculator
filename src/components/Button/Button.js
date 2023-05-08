@@ -10,7 +10,7 @@ function Button(props) {
     }, [])
 
     return (
-            <button className={classChar} onClick={() => props.onClick(props.char)}>
+            <button className={classChar} onKeyDown={props.onKeyDown} onClick={() => props.onClick(props.char)}>
                 {props.char}
             </button>
     )
